@@ -405,6 +405,7 @@ Language
 
 Note, HTTP standard defines headers as case-insensitive ([RFC 7230, p.22](https://tools.ietf.org/html/rfc7230#page-22)). However, for sake of readability and consistency you should follow the convention when using standard or proprietary headers. Exceptions are common abbreviations like `ID`.
 
+
 ## Publications, specifications, and standards
 
 - [RFC 3339](https://tools.ietf.org/html/rfc3339): Date and Time on the Internet: Timestamps
