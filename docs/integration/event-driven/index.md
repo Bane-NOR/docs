@@ -1,11 +1,5 @@
 # Principles for Event-Driven Architecture
 
-!!! warning "Work In Progress"
-    The whole Event Driven section is work in progress
-
-!!! tip
-    Since the final setup for the event driven integrations are not ready we have created some information around [technical debt](getting-started/eventhub.md) that can be used by teams to more easily migrate to the solution when ready.
-
 We strongly believe that an Event-Driven Architecture is the best approach to solve common problems which arise in most of today's companies with some kind of distributed IT, especially when introducing DevOps or cross functional teams and reducing or removing central IT Governance functions.
 
 The following is a list of principles we want to enforce in Bane NOR to establish such an Event-Driven Architecture. They shall support our overall company goals like cost reduction, reduction of time-to-market, but also ensure a high level of reliability.
