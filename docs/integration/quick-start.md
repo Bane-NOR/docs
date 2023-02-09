@@ -1,6 +1,6 @@
 # Quick Start
 
-Welcome to the quick start guide with Integration. 
+Welcome to the quick start guide with Integration.
 
 The purpose of this document is to present the most relevant information regrading where to start and to help find relevant information. The document is split up into sections depending on what  the role and audience whom want to start.
 
@@ -12,7 +12,7 @@ The purpose of this document is to present the most relevant information regradi
 You should check out the following resources before using APIs:
 
 - The [Integration Strategy](strategy.md) describes the overall Strategy for the Integration Platform as a whole - why it exists and what capabilities it provides.
-- [Terms & Definitions](terms-and-definitions.md) outlines relevant terminology that are used across all documentation. 
+- [Terms & Definitions](terms-and-definitions.md) outlines relevant terminology that are used across all documentation.
 
 ## API Management
 
@@ -34,8 +34,8 @@ This section describes how to get access. Please select your audience type:
 
 === "Internal"
 
-    1. Service teams need to familiarize themselves and meet [certain requirements](apim/getting-started.md) before they can enroll in API Manager.
-    2. If your service team meets the [requirements](apim/getting-started.md) mentioned in the previous step, check that you can log into the [api-portal](https://api-portal.banenor.no/) with your Bane NOR AD account.
+    1. Service teams need to familiarize themselves and meet [certain requirements](apim/getting-started/index.md) before they can enroll in API Manager.
+    2. If your service team meets the [requirements](apim/getting-started/index.md) mentioned in the previous step, check that you can log into the [api-portal](https://api-portal.banenor.no/) with your Bane NOR AD account.
     3. You will also have access to the [Azure Portal](https://portal.azure.com/) and can proceed with following the [HowTo Guides](apim/howto/manage-api-access-groups.md)
 
 === "Partner"
@@ -50,24 +50,14 @@ This section describes how to get access. Please select your audience type:
 
 You now have access to the API Manager!
 
-We want all Bane NOR APIs to appear as if the same author created them. Therefore, some guidelines have been created to support a uniform way to create APIs. 
+We want all Bane NOR APIs to appear as if the same author created them. Therefore, some guidelines have been created to support a uniform way to create APIs.
 
 Guidelines:
 
-- [Integration Guidelines](guidelines/integration.md) presents soft and hard technical requirements when it comes to creating products/APIs 
+- [Integration Guidelines](guidelines/integration.md) presents soft and hard technical requirements when it comes to creating products/APIs
 - [Naming conventions](guidelines/naming.md) explains rules and best practices when it comes to naming products/APIs.
 <!-- - TODO: Add to list: [Event Modeling](TODO: Page not ready yet, add reference later) --->
 
 !!! warning
 
     The guidelines are important to follow in order to make Bane NOR APIs appear unified, however, some requirements might be stricter or looser based on what audience level you are!
-
-## Other documentation
-
-This documentation describes everything from requirements affecting the architecture to the defined capabilities and the components that provides them.
-
-- [Architecture](architecture.md) describes everything from requirements affecting the architecture to the defined capabilities and the components that provides them.
-- [Decision Log](decision-log/index.md) listsa affecting decisions taken by the Integration team.
-- [Release Notes](release-notes/index.md).
-<!-- - [Methodology](methodology/index.md) - TODO: Add reference here when Methodology is done --->
-
