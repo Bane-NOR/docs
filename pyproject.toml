@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "documentation"
+version = "0.1.0"
+description = ""
+authors = ["Idar Bergli <idar.bergli@soprasteria.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+mkdocs = "^1.1.2"
+Pygments = "^2.13.0"
+pymdown-extensions = "^9.6"
+mkdocs-material = "^8.5.6"
+mkdocs-glightbox = "^0.3.0"
+mkdocs-git-revision-date-localized-plugin = "^1.1.0"
+mkdocs-markdownextradata-plugin = "^0.2.5"
+mdx-include = "^1.4.1"
+azure-functions = "^1.11.2"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.20.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
