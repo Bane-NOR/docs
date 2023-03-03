@@ -1,12 +1,10 @@
 # Principles for Event-Driven Architecture
 
-We strongly believe that an Event-Driven Architecture is the best approach to solve common problems which arise in most of today's companies with some kind of distributed IT, especially when introducing DevOps or cross functional teams and reducing or removing central IT Governance functions.
-
-The following is a list of principles we want to enforce in Bane NOR to establish such an Event-Driven Architecture. They shall support our overall company goals like cost reduction, reduction of time-to-market, but also ensure a high level of reliability.
+We strongly believe that an Event-Driven Architecture is the best approach to solve many of the problems which Bane NOR is facing. With our initiative to become more service oriented with service teams, this will be increasingly important as we need to architect and work with events, and not systems. Information about events must be shared for everyone to consume.The following is a list of principles we want to enforce in Bane NOR to establish such an Event-Driven Architecture. They shall support our overall company goals like cost reduction, reduction of time-to-market, but also ensure a high level of reliability.
 
 We formulated these principles almost completely in a technology-neutral way. Only in some examples or practical additions, we refer to the underlying technology.
 
-Based on these principles, we selected Apache Kafka as the technological base for us, and created Galapagos as the utility to enforce these principles while freeing DevOps teams from working through all of this stuff.
+Based on these principles, we selected Apache Kafka with the Confluent platform as the technological base for us. With tooling, we want to enforce these principles while freeing service teams from working through all of this stuff.
 
 ## Business Events instead of Business Objects
 
@@ -22,11 +20,11 @@ To avoid Event Cumulation (i.e. an application has to gather all events for a Bu
 
 ## Domains instead of Applications
 
-Although most IT people think in applications, Business Events do not really belong to an application. Instead, they belong to a Business Domain (see Domain Driven Design). Applications come and go, will be replaced, split, whatever. But the Business Events usually exist until some fundamental change in the underlying Business Process is done.
+Although most IT people think in applications, Business Events do not really belong to an application. Instead, they belong to a Business Domain (see Domain Driven Design) which for us in Bane NOR is our service teams. Applications come and go, will be replaced, split, whatever. But the Business Events usually exist until some fundamental change in the underlying Business Process is done.
 
-So, Applications do own (generate) Business Events for the time of their existence, but the Event must logically be bound to a Business Domain.
+So, applications do own (generate) Business Events for the time of their existence, but the Event must logically be bound to a Business Domain.
 
-This shall reflect also in the naming of the Event type. An event like Order Received may mean something completely different to the Sales domain than to the Internal Logistics domain. So, when referring to the Event type, the name of the owning Business Domain must be included.
+This shall be reflected also in the naming of the Event type. An event like Order Received may mean something completely different to the Sales domain than to the Internal Logistics domain. So, when referring to the Event type, the name of the owning Business Domain must be included.
 
 ## Event Types are complete, or are not at all
 
@@ -34,9 +32,9 @@ A published Business Event Type must contain all events (event instances) of thi
 
 ## Publish-Subscribe instead of Point-to-Point
 
-Many IT companies with DevOps or cross functional teams tend to delegate coordination of interfaces and their contents to the teams, so two teams A and B have to mutually agree upon interfaces between them for data exchange. A new application C, which e.g. also requires information from team A, then has to make own agreements with this team. It may use the same interface as application B, if approved by team A. Team A then has to take care about communicating changes of this interface to both teams, monitor the interface, adjust it for added loads, handle application downtimes etc...
+Many IT companies with DevOps or cross functional teams tend to delegate coordination of interfaces and their contents to the teams, so two teams A and B have to mutually agree upon interfaces between them for data exchange. A new application C, which e.g. also requires information from team A, then has to make own agreements with this team. It may use the same interface as application B, if approved by team A. Team A then has to take care about communicating changes of this interface to both teams, monitor the interface, adjust it for added loads, handle application downtimes etc... This is true for Bane NOR too.
 
-We think that applications shall instead just publish their Business Events, and all interested applications then can subscribe to these events. Of course, the initial Event Payload will usually be agreed upon with the first subscriber, but due to the focus on the Business Event instead of a technical driver, and by adhering to the rules above, the chances that the resulting published information is generally useful are quite high. Adjustments to the payload can be made later on, but have to adhere to another rule...
+We think that we shall instead just publish our Business Events, and all interested parties can then subscribe to these events. Of course, the initial Event Payload will usually be agreed upon with the first subscriber, but due to the focus on the Business Event instead of a technical driver, and by adhering to the rules above, the chances that the resulting published information is generally useful are quite high. Adjustments to the payload can be made later on, but have to adhere to another rule...
 
 ## Payload changes are always consumer-compatible
 
@@ -50,6 +48,6 @@ Technical measures can be taken to avoid having to provide old, wrong, whatever 
 
 In todays enterprise IT infrastructures, often you can find one central team responsible for the Enterprise Service Bus, or the central Messaging infrastructure. Teams wanting to publish data there, or wanting to receive data from another team via this central messaging, usually have to fill out some kind of form (maybe many pages), pass it to that team, and get the desired communication channels and associated rights from this team. This team usually does not look into why these teams want to share data, or if this data is already available elsewhere, or similar questions.
 
-We think that establishing a communication channel to another team or publishing relevant business events should be the sole responsibility of the involved teams. Usually they have the competence to know what events they require, or what the business events are they can publish. When it comes to sensitive data, e.g. business events containing personal data in the payload, the providing team (in the best case, the Business Owner there) has the competence to determine if a requesting team B should have access to their events and associated data or not, so they should be the approving instance.
+We think that establishing a communication channel to another team or publishing relevant business events should be the sole responsibility of the involved teams. Usually they have the competence to know what events they require, or what business events they can publish. When it comes to sensitive data, e.g. business events containing personal data in the payload, the providing team (in the best case, the Business Owner) has the competence to determine if a requesting team B should have access to their events and associated data or not, so they should be the approving instance.
 
 With great power comes great responsibility. The power of teams to publish or subscribe to events brings the responsibility to carefully consider the event context, required event payload, and avoid redundancies in the enterprise IT landscape. The teams must provide appropriate information about their events and related decisions in a suitable format, e.g. in a company-wide Enterprise Architecture tool.
