@@ -55,10 +55,10 @@ Version - Describes the version of the topic. This will be used if there are any
 Example:
 ```text
 
-{on-premises}.{operational}.{optional}.{event}.{train-arrived-at-station}.{v1}
-\___________/ \___________/  \_______/  \____/  \_______________________/ \__/
-     |              |            |         \               |                |                                
- Environment      Domain     Sub-domain    Topic type     Event          Version             
+{cloud}.{operational}.{optional}.{event}.{train-arrived-at-station}.{v1}
+\_____/ \___________/  \_______/  \____/  \_______________________/ \__/
+   |          |            |         \               |                |                                
+Environment Domain     Sub-domain    Topic type     Event          Version             
 ```
 
 ## Data Formats
