@@ -1,6 +1,6 @@
 # Principles for Event-Driven Architecture
 
-We strongly believe that an Event-Driven Architecture is the best approach to solve many of the problems which Bane NOR is facing. With our initiative to become more service oriented with service teams, this will be increasingly important as we need to architect and work with events, and not systems. Information about events must be shared for everyone to consume.The following is a list of principles we want to enforce in Bane NOR to establish such an Event-Driven Architecture. They **must**** support our overall company goals like cost reduction, reduction of time-to-market, but also ensure a high level of reliability.
+We strongly believe that an Event-Driven Architecture is the best approach to solve many of the problems which Bane NOR is facing. With our initiative to become more service oriented with service teams, this will be increasingly important as we need to architect and work with events, and not systems. Information about events must be shared for everyone to consume.The following is a list of principles we want to enforce in Bane NOR to establish such an Event-Driven Architecture. They **must** support our overall company goals like cost reduction, reduction of time-to-market, but also ensure a high level of reliability.
 
 We formulated these principles almost completely in a technology-neutral way. Only in some examples or practical additions, we refer to the underlying technology.
 
