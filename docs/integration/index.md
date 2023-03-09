@@ -19,7 +19,7 @@ Before you go further, we advice you to read some of these articles to get the b
 - [Read more about Event First Thinking](https://serverlessland.com/event-driven-architecture/visuals/event-first-thinking)
 - [Read more about Event Driven Architecture](/integration/strategy/#event-driven-architecture-eda)
 - [Read more about Bane NOR API Management](/integration/apim/getting-started/)
-- [Read more about Bane NOR Confluent Platform(no link yet)]()
+<!-- - [Read more about Bane NOR Confluent Platform]()-->
 
 ## Bane NOR Integration Services (coming soon)
 
