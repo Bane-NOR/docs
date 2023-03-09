@@ -7,6 +7,14 @@ The purpose of this document is to present the most relevant information regradi
 !!! warning
     The Quick start guide is a work in progress, where internal development is in focus
 
+## Guiding flows (comming soon)
+
+Before you start doing integrations, please follow our guiding flows to help you understand what to do and how to start.
+
+### Sharing data
+
+### Consuming data
+
 ## Useful resources
 
 You should check out the following resources before using APIs:

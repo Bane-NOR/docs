@@ -1,4 +1,4 @@
-# Requirements for enrolling in API ManagementManagement
+# Requirements for enrolling in API Management
 
 Bane NOR's software is moving towards a decoupled microservice oriented architecture. The main part of going towards this is by using Event Driven Architecture with support for RESTful APIs. We have different service teams that own, deploy and operate these services. API Management ([Azure API Management](https://azure.microsoft.com/en-us/products/api-management/#documentation)) will help to transition towards the decoupled microservice oriented architecture.
 
