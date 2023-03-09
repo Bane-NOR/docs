@@ -4,18 +4,11 @@ Documentation will be published at [https://bane-nor.github.io/docs/](https://ba
 
 This documentation is based on [mkdocs](https://www.mkdocs.org/) with the [material](https://squidfunk.github.io/mkdocs-material/) theme and som other plugins that can be found in the [pyproject file](./pyproject.toml).
 
-## Manuals
+## Writing
 
+To be able to run the documentation locally run the following.
 
-
-## Editing
-
-TBD
-
-## Build
-
-TBD
-
-## Using VSCode
-
-TBD
+```sh
+poetry install
+poetry run mkdocs serve
+```

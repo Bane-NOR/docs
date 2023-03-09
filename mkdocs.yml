@@ -27,6 +27,7 @@ nav:
         - Azure Event Hub: integration/event-driven/getting-started/eventhub.md
     - Guidelines:
       - Integration: integration/guidelines/integration.md
+      - Kafka Guidelines: integration/guidelines/kafka-guidelines.md
       - Naming: integration/guidelines/naming.md
       - Event Modeling: integration/guidelines/event-modeling.md
     - Release Notes:
