@@ -195,23 +195,9 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#guiding-flows-comming-soon">
-    Guiding flows (comming soon)
+<a class="md-nav__link" href="#get-started-sharing-and-consuming-data">
+    Get started sharing and consuming data
   </a>
-<nav aria-label="Guiding flows (comming soon)" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#sharing-data">
-    Sharing data
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#consuming-data">
-    Consuming data
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#useful-resources">
@@ -498,23 +484,9 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#guiding-flows-comming-soon">
-    Guiding flows (comming soon)
+<a class="md-nav__link" href="#get-started-sharing-and-consuming-data">
+    Get started sharing and consuming data
   </a>
-<nav aria-label="Guiding flows (comming soon)" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#sharing-data">
-    Sharing data
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#consuming-data">
-    Consuming data
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#useful-resources">
@@ -557,12 +529,63 @@
 <p>The purpose of this document is to present the most relevant information regrading where to start and to help find relevant information. The document is split up into sections depending on what  the role and audience whom want to start.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The Quick start guide is a work in progress, where internal development is in focus</p>
+<p>The Quick start guide is work in progress</p>
 </div>
-<h2 id="guiding-flows-comming-soon">Guiding flows (comming soon)<a class="headerlink" href="#guiding-flows-comming-soon" title="Permanent link">¶</a></h2>
-<p>Before you start doing integrations, please follow our guiding flows to help you understand what to do and how to start.</p>
-<h3 id="sharing-data">Sharing data<a class="headerlink" href="#sharing-data" title="Permanent link">¶</a></h3>
-<h3 id="consuming-data">Consuming data<a class="headerlink" href="#consuming-data" title="Permanent link">¶</a></h3>
+<h2 id="get-started-sharing-and-consuming-data">Get started sharing and consuming data<a class="headerlink" href="#get-started-sharing-and-consuming-data" title="Permanent link">¶</a></h2>
+<p>In order for the integration platform to realize value and help us become more data-driven, we must all increase our understanding and ownership of our data and better understand how consumers data uses and needs. </p>
+<p>Below you find a short summary of how to get started. Note that the list is not complete, but is meant to get business owners and such started. For technical details, please read our more in-dept guidelines for APIM or Confluent Platform. Also, make sure to consult your solution design with experts before implementation for all use cases. If you have any questions, please contact us.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Publish events</label><label for="__tabbed_1_2">Consume events</label><label for="__tabbed_1_3">Expose APIs</label><label for="__tabbed_1_4">Consume APIs</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>In order to publish events to the Confluent Platform, we have summarized some of the key activities you need to undertake.</p>
+<ol>
+<li>Define ownership and context of your event <a href="">read more about Event Storming(Missing link)</a></li>
+<li>Create topic on Confluent Platform <a href="/guidelines/kafka-guidelines/">according to guidelines</a><ul>
+<li>Define your topic using our template (pipeline will validate, and we will do QA before it is accepted)</li>
+<li>Produce events according to data contract </li>
+<li>Evaluate the need for translating between domain specific and common data models</li>
+</ul>
+</li>
+<li>Ensure your known consumers and your producers can communicate with Confluent<ul>
+<li>Communicate events directly or through facades with Confluent</li>
+<li>Ensure network communication with Confluent</li>
+<li>Always ensure changes are backwards compatible</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>In order to consume events from the Confluent Platform, we have summarized some of the key activities you need to undertake.</p>
+<ol>
+<li>Ask topic owner for permission to consume topic data</li>
+<li>Set up communication with Confluent<ul>
+<li>Ensure firewall openings to Confluent Platform</li>
+<li>Consume events directly or through facades</li>
+<li>Evaluate the need for translating between domain specific and common data models</li>
+</ul>
+</li>
+<li>Ensure backend consumes events according to data contract</li>
+<li>Ensure error handling of event consumption</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>For now, contact the integreation team for exposing APIs. </p>
+<ol>
+<li>Understand your consumers and create reusable APIs according to our <a href="../guidelines/integration/">guidelines</a></li>
+<li>Ensure your backend can be exposed through APIM</li>
+<li>Follow our requirements and provide us with <a href="../apim/getting-started/#must-have-the-following-information-for-name-and-ownership-of-api">needed technical information</a> so that we can expose your APIs</li>
+<li>Ensure your consumers are able to consume your API</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<p>For now, contact the integration team for consuming APIs.</p>
+<ul>
+<li>We can help you get access to APIs</li>
+<li>You must consume APIs using our components for authentication and authorization</li>
+</ul>
+</div>
+</div>
+</input></input></input></input></div>
 <h2 id="useful-resources">Useful resources<a class="headerlink" href="#useful-resources" title="Permanent link">¶</a></h2>
 <p>You should check out the following resources before using APIs:</p>
 <ul>
@@ -597,7 +620,7 @@
 </table>
 <h3 id="access-to-api-management">Access to API Management<a class="headerlink" href="#access-to-api-management" title="Permanent link">¶</a></h3>
 <p>This section describes how to get access. Please select your audience type:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Internal</label><label for="__tabbed_1_2">Partner</label><label for="__tabbed_1_3">Public</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Internal</label><label for="__tabbed_2_2">Partner</label><label for="__tabbed_2_3">Public</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
@@ -632,10 +655,10 @@
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-03-09T08:28:10+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-09</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-03-22T10:36:55+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-22</span>
 <br/>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-03-09T08:28:10+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-09</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-03-22T10:36:55+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-03-22</span>
 </small>
 </div>
 </article>
