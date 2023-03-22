@@ -17,8 +17,8 @@ Below you find a short summary of how to get started. Note that the list is not 
 
     In order to publish events to the Confluent Platform, we have summarized some of the key activities you need to undertake.
 
-    1. Define ownership and context of your event [read more about Event Storming(Missing link)]()
-    2. Create topic on Confluent Platform [according to guidelines](/guidelines/kafka-guidelines/)
+    1. Define ownership and context of your event - [read more about Event Storming](https://www.eventstorming.com/)
+    2. Create topic on Confluent Platform [according to guidelines](../guidelines/confluent-guidelines/)
         - Define your topic using our template (pipeline will validate, and we will do QA before it is accepted)
         - Produce events according to data contract 
         - Evaluate the need for translating between domain specific and common data models
