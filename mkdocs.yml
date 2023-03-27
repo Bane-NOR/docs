@@ -9,7 +9,6 @@ nav:
     - Quick Start: integration/quick-start.md
     - Strategy: integration/strategy.md
     - Terms & Definitions: integration/terms-and-definitions.md
-    - Architecture: integration/architecture.md
     - API Management:
       - Home: integration/apim/index.md
       - Getting Started: 
@@ -33,6 +32,7 @@ nav:
     - Release Notes:
       - Release Notes: integration/release-notes/index.md
       - Component Changelog: integration/release-notes/changelog.md
+    - Further reads: integration/further-reads.md
   - Business:
     - Domain Driven: business/domain-driven.md
     - Abbreviations: business/abbreviations.md

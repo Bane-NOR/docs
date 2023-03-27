@@ -210,31 +210,3 @@ In this document we distinguish between 3 API categories
 | Internal | Internal APIs are available to clients within the company. Internal APIs are sometimes referred to as _private_ APIs. |
 | Partner | Partner APIs are available to selected business partners. Partner APIs have consumers outside the company, and typically need other mechanisms for access control and client developer communication than internal APIs.  |
 | Public | Public APIs are publicly available on the Internet. Public APIs can potentially have a high number of consumers. Access control mechanisms and consumer communication channels need to be scalable. |
-
-## References & useful links
-
-### OpenAPI Specification
-
-* [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/)
-* [OpenAPI Specification - Web Page](https://swagger.io/specification/)
-* [OpenAPI Specification Mind Map](https://openapi-map.apihandyman.io/)
-
-### Publications, articles & guidelines
-
-* [Integration Guidelines](../integration/guidelines/integration.md)
-* [Roy Fielding Dissertation - Architectural Styles and the Design of Network-based Software Architectures](https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
-* [REST API Tutorial](https://www.restapitutorial.com/)
-* [Microsoft Azure REST design guidelines](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design)
-* [Richardson Maturity Model](http://martinfowler.com/articles/richardsonMaturityModel.html)
-* [Microservice Architecture Principles](https://martinfowler.com/articles/microservices.html)
-
-### Blogs & blog posts
-
-* [Nordic APIs](https://nordicapis.com/)
-* [API Evangelist](http://apievangelist.com/)
-* [API Design - The guidelines (Hacker Noon)](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9)
-
-### EDA
-
-* [Open Standard for Cloud Event](https://cloudevents.io/)
-* [The many meanings of Event-Driven Architecture](https://www.youtube.com/watch?v=STKCRSUsyP0) (Youtube)
