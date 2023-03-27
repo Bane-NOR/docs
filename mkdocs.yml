@@ -32,7 +32,8 @@ nav:
     - Release Notes:
       - Release Notes: integration/release-notes/index.md
       - Component Changelog: integration/release-notes/changelog.md
-    - Further reads: integration/further-reads.md
+    - Further reads:
+      - Home: integration/further-reads/index.md
   - Business:
     - Domain Driven: business/domain-driven.md
     - Abbreviations: business/abbreviations.md

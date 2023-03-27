@@ -4,8 +4,8 @@ In order to develop new knowledge in Bane NOR, we have collected some good reads
 
 ### Our documentation
 
-- [Read more about Event Driven Architecture](/integration/strategy/#event-driven-architecture-eda)
-- [Read more about Bane NOR API Management](/integration/apim/getting-started/)
+- [Read more about Event Driven Architecture](../strategy/#event-driven-architecture-eda)
+- [Read more about Bane NOR API Management](../getting-started/)
 
 ### OpenAPI Specification
 
@@ -15,7 +15,7 @@ In order to develop new knowledge in Bane NOR, we have collected some good reads
 
 ### Publications, articles & guidelines
 
-* [Integration Guidelines](../integration/guidelines/integration.md)
+* [Integration Guidelines](/integration/guidelines/integration.md)
 * [Roy Fielding Dissertation - Architectural Styles and the Design of Network-based Software Architectures](https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)
 * [REST API Tutorial](https://www.restapitutorial.com/)
 * [Microsoft Azure REST design guidelines](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design)

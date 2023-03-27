@@ -26,11 +26,11 @@ This section describes how to get access. Please select your audience type:
 
 === "Partner"
 
-    [Maskinporten](https://samarbeid.digdir.no/maskinporten/maskinporten/25) is used to have a common platform to do authentication and authorization across companies for sharing data. Check out the [Maskinporten documentation](apim/security/maskinporten.md) to get started.
+    [Maskinporten](https://samarbeid.digdir.no/maskinporten/maskinporten/25) is used to have a common platform to do authentication and authorization across companies for sharing data. Check out the [Maskinporten documentation](security/maskinporten.md) to get started.
 
 === "Public"
 
-    [Maskinporten](https://samarbeid.digdir.no/maskinporten/maskinporten/25) is used to have a common platform to do authentication and authorization across companies for sharing data. Check out the [Maskinporten documentation](apim/security/maskinporten.md) to get started.
+    [Maskinporten](https://samarbeid.digdir.no/maskinporten/maskinporten/25) is used to have a common platform to do authentication and authorization across companies for sharing data. Check out the [Maskinporten documentation](security/maskinporten.md) to get started.
 
 ### Guidelines for creating products in API Management
 
