@@ -24,9 +24,6 @@ This document contains the following:
 
 These are general guidelines the different `service teams` and `service owners` needs to be aware of.
 
-### <span class="rfc-should">SHOULD</span> comply with Bane NOR IKT-principles
-
-It is crucial to follow general guidelines from Bane NOR, therefore reading and fully understanding Bane NOR's IKT-principles is a prerequisite before enrolling in API Management. The principles are provided by _IKT Virksomhetsarkitektur_ in Bane NOR and can be found here: [Bane NOR IKT principles](https://banenor.sharepoint.com/:b:/t/DT_IKTIntegrasjoneroganalyse/EeiCi6G5CvdMv0TJBMIbGXUBKuxyqwbnZNidQsNllFh7WA).
 
 ### <span class="rfc-must">MUST</span> be coordinated with service owners within their respective domains
 
@@ -52,14 +49,6 @@ To have an overview of the technicalities, the service teams **should** study th
 ### <span class="rfc-must">MUST</span> know if my system is in the Cloud (including SolidCloud) or On-Prem
 
 API Management is available in Cloud. This means initiatives that are On-Prem will not be able to use API Management directly. If On-prem solutions needs to be used from external parties own API's needs to be created in the Cloud that uses event driven to send and receive data from on-prem systems.
-
-### <span class="rfc-may">MAY</span> attend Bane NOR workshop for using API Management
-
-Service teams **may** attend technical introductory workshops given by the Integration team. This workshops explains how to use API Management, including:
-
-- Rules when creating APIs in API Management so that ideally, all Bane NOR API's will appear as if the same author created them.
-- How to perform actions in API Management
-- Where to contact if something is wrong
 
 ## API Management Audience
 
@@ -87,9 +76,3 @@ Information needed as seen in the table:
 | API path            | string         | "customer-info/realtime"    | Suffix for API URL according to [naming standard](../../guidelines/naming.md)              |
 | API Version         | string         | "v1"                        | The version of the API default to "v1" if it is the first version                          |
 | User Principal Name | string         | "jeff.snow@coolcompany.com" | The owner of the API resource in API Management, this owner can give access to other users as needed |
-
----
-
-## Process for enrolling in API Management
-
-![0](../../img/apim/process_enrolling_apim.png)
