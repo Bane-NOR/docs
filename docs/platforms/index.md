@@ -4,9 +4,9 @@
 
 The Data and Development Platform team is the grouping of several platforms and teams which consits of:
 
-  - [The Developer Platform (Bullet)](developer)
-  - [The Integration platform](integration)
-  - [The Data & Analysis platform](data)
+  - [The Data & Analysis platform](/platforms/data)
+  - [The Developer Platform (Bullet)](/platforms/developer)
+  - [The Integration platform](/platforms/integration)
 
 ## What do we deliver?
 

@@ -11,4 +11,4 @@ The integration platform is split into two main services:
 - Event Driven Architecture (EDA)
 - REST based synchronous messaging
 
-For those outside of Bane NOR this comes in the form of [Even Issuer](/Event-Issuer) and [Payload Manager](/Payload-Manager)
+For those outside of Bane NOR this comes in the form of [Event Issuer](/platforms/integration/Event-Issuer/) and [Payload Manager](/platforms/integration/Payload-Manager/)
