@@ -1,0 +1,12 @@
+nav:
+
+    - Home: index.md
+    - Platforms: 
+      - platforms/index.md
+      - Data & Analysis Platform: data
+      - Development Platform: developer
+      - Integration Platform: integration
+    - Publications: 
+      - publications/index.md
+      - Reports: reports
+    - FAQ: faq.md
