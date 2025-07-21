@@ -1,9 +1,20 @@
-[tool.poetry]
-name = "platform-docs"
-version = "0.1.0"
+[project]
+name = "public-docs"
 description = "External documentation for the platform"
-authors = ["Integration team <integrasjonsteamet@banenor.no>"]
+authors = [
+    { name = "The Integration Platform", email = "integrasjonsteamet@banenor.no>" },
+    { name = "The Development Platform"},
+    { name = "The Data & Analysis Platform" }
+]
 readme = "README.md"
+dynamic = [
+    "version",
+    "dependencies",
+    "requires-python"
+]
+
+[tool.poetry]
+version = "0.1.0"
 
 [tool.poetry.dependencies]
 python = "^3.11"

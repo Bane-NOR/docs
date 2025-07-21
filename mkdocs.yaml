@@ -1,10 +1,10 @@
-site_name: BaneNOR Platform Documentation
-site_description: Platform Documentation
+site_name: Bane NOR Public Documentation
+site_description: Public Documentation
 
 theme:
   name: material
-  logo: /platform-docs/img/baneNOR-logo.svg
-  favicon: /platform-docs/img/baneNOR-favicon.png # located here: https://www.banenor.no/Resources/Favicon/favicon-32x32.png
+  logo: /img/baneNOR-logo.svg
+  favicon: /img/baneNOR-favicon.png # located here: https://www.banenor.no/Resources/Favicon/favicon-32x32.png
   include_search_page: false
   search_index_only: true
   language: en

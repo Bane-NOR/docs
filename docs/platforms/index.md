@@ -3,9 +3,10 @@
 ## What is the Data and Development Platform?
 
 The Data and Development Platform team is the grouping of several platforms and teams which consits of:
-- [The Developer Platform (Bullet)](developer)
-- [The Integration platform](integration)
-- [The Data & Analysis platform](data)
+
+  - [The Developer Platform (Bullet)](developer)
+  - [The Integration platform](integration)
+  - [The Data & Analysis platform](data)
 
 ## What do we deliver?
 

@@ -1,7 +1,7 @@
 # Bane NOR External Documentation
 
 <div style="display: flex; align-items: center; height: 100px;">
-    <img src="/docs/img/platforms_round.png" alt="Image" width="100" height="100" style="margin-right: 10px;">
+    <img src="/img/platforms_round.png" alt="Image" width="100" height="100" style="margin-right: 10px;">
     <h1 style="margin: 0;">Welcome to the Portal!</h1>
 </div>
 
@@ -18,9 +18,11 @@ To ensure ease of use, the documentation is organized into four main sections:
     - The Data & Analysis Platform
     - The Developer Platform
     - The Integration Platform
-Each section contains categorized articles, FAQs, and troubleshooting guides, making it easy to find the information relevant to your needs.
+    !!! note
+        Each section contains categorized articles, FAQs, and troubleshooting guides, making it easy to find the information relevant to your needs.
 3. Publications - This will consist of technical reports and technical findings we choose to publish
 4. FAQ - Any frequetly asked questions.
+
 Additionally, **a global search function indexes all content**, so you can locate any document or guide quickly without needing to know where it resides.
 
 ---

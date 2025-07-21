@@ -4,7 +4,7 @@ Some common questions you might have after seeing this page
 
 ## What is the purpose of this site?
 
-We try to be transparent, where possible we would like to share information about the work we do and how it can be used by others.
+We want to be transparent, where possible we would like to share information about the work we do and how it can be used by others.
 However, we also maintain services which are used by external parties and as such wish to maintain relevant documentation for them.
 
 ## Who is this written for?
