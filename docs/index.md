@@ -14,7 +14,7 @@ The content is curated for a technical audience, including developers, system ar
 To ensure ease of use, the documentation is organized into four main sections:
 
 1. Home - The landing Page
-2. Platforms - This section has public documentation and information about the platforms under the Data & Analysis Platform, which consists of:
+2. Platforms - This section has public documentation and information about the platforms under the Data and Development Platform, which consists of:
     - The Data & Analysis Platform
     - The Developer Platform
     - The Integration Platform
