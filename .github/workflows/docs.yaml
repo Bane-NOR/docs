@@ -5,12 +5,19 @@ on:
     types:
       - created
 
+permissions:
+  contents: read
+
 jobs:
   build:
+    permissions:
+      contents: write
+      pages: write
+      actions: read
     strategy:
       matrix:
         os: [ubuntu-latest]
-        python-version: ["3.10"]
+        python-version: ["3.11"]
 
     runs-on: ${{ matrix.os }}
 
@@ -39,8 +46,8 @@ jobs:
           poetry config virtualenvs.in-project true
           
       - name: Install Package Dependencies
-        run: poetry install
+        run: poetry install --no-root
 
       - name: Create version and Publish to gh-pages
         run: |
-          poetry run mkdocs gh-deploy -c
+          poetry run mkdocs gh-deploy -c --force

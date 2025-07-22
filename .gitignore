@@ -22,6 +22,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+.python-version
 
 # C extensions
 *.so
@@ -265,3 +266,5 @@ eng/
 terraform/
 schema/
 docs/staticwebapp.config.json
+
+locals/
