@@ -5,8 +5,15 @@ on:
     types:
       - created
 
+permissions:
+  contents: read
+
 jobs:
   build:
+    permissions:
+      contents: write
+      pages: write
+      actions: read
     strategy:
       matrix:
         os: [ubuntu-latest]
