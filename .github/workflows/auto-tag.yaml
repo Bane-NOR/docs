@@ -16,6 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - uses: actions/create-github-app-token@v2
+        id: app-token
+        with:
+          app-id: ${{ vars.BN_RELEASER_APP_ID }}
+          private-key: ${{ secrets.BN_RELEASER_PRIVATE_KEY }}
       - name: Checkout code
         uses: actions/checkout@v4
         with:
@@ -23,6 +28,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Determine version bump and create tag
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           # Get latest tag or default to v0.0.0
           latest_tag=$(git tag -l "v*" | sort -V | tail -n1)
