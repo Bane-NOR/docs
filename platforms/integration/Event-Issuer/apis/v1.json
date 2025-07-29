@@ -11,15 +11,15 @@
   },
   "servers": [
     {
-      "url": "https://api.banenor.no/event-issuer/v1",
+      "url": "https://event-issuer-api-v1.apps-int.banenor.no",
       "description": "Production instance for Bane NOR, this will have the alpha, beta and the latest released version available."
     },
     {
-      "url": "https://dev.api.apps.banenor.no/event-issuer/v1",
+      "url": "https://event-issuer-api-v1.review.apps-int.banenor.no",
       "description": "Internal development instance"
     },
     {
-      "url": "https://test.api.apps.banenor.no/event-issuer/v1",
+      "url": "https://event-issuer-api-v1.staging.apps-int.banenor.no",
       "description": "Internal test instance"
     }
   ],
@@ -49,6 +49,15 @@
           },
           {
             "$ref": "#/components/parameters/maxPerPage"
+          },
+          {
+            "$ref": "#/components/parameters/topic"
+          },
+          {
+            "$ref": "#/components/parameters/url"
+          },
+          {
+            "$ref": "#/components/parameters/workerStatus"
           }
         ],
         "responses": {
@@ -570,6 +579,43 @@
         "description": "The amount of subscription to retrieve at once can be between 1 and 1000.\n",
         "schema": {
           "type": "number"
+        }
+      },
+      "topic": {
+        "name": "topic",
+        "in": "query",
+        "description": "Filter by topic name",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "url": {
+        "name": "url",
+        "in": "query",
+        "description": "Filter by exact subscriber webhook URL",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "workerStatus": {
+        "name": "workerStatus",
+        "in": "query",
+        "description": "Filter by worker status (e.g., Running, Paused, Failed, etc)\n",
+        "required": false,
+        "schema": {
+          "type": "string",
+          "enum": [
+            "Initializing",
+            "Running",
+            "Stopped",
+            "Failed",
+            "Restart",
+            "Starting",
+            "Stopping"
+          ]
         }
       },
       "subscriptionId": {
