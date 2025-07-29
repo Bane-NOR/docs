@@ -78,6 +78,9 @@ jobs:
           fi
           
           echo "Bumping $bump_type version: $latest_tag → $new_tag"
+          gh config set prompt disabled
+          echo $GH_TOKEN | gh auth login --with-token 
+          gh auth setup-git
 
           # Update pyproject.toml if it exists
           if [ -f "pyproject.toml" ] && grep -q 'version = ' pyproject.toml; then
