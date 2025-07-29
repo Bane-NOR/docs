@@ -40,7 +40,7 @@ jobs:
           # Determine version bump type
           if echo "$commits" | grep -q "BREAKING CHANGE\|!:"; then
             bump_type="major"
-          elif echo "$commits" | grep -q "^feat"; then
+          elif echo "$commits" | grep -q "^feat\|^feature"; then
             bump_type="minor"
           elif echo "$commits" | grep -q "^fix\|^docs\|^style\|^refactor\|^test\|^chore\|^perf"; then
             bump_type="patch"
