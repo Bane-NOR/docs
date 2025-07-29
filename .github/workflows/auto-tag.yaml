@@ -41,6 +41,10 @@ jobs:
           GIT_COMMITTER_NAME: ${{ steps.generate-token.outputs.app-slug }}[bot]
           GIT_COMMITTER_EMAIL: ${{ fromJson(steps.get-bot-id.outputs.data).id }}+${{ steps.generate-token.outputs.app-slug }}[bot]@users.noreply.github.com
         run: |
+          # Configure git with environment variables
+          git config user.name "$GIT_AUTHOR_NAME"
+          git config user.email "$GIT_AUTHOR_EMAIL"
+
           # Get latest tag or default to v0.0.0
           latest_tag=$(git tag -l "v*" | sort -V | tail -n1)
           if [ -z "$latest_tag" ]; then
