@@ -1,0 +1,89 @@
+name: Auto Tag
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  tag:
+    permissions:
+      contents: write
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Determine version bump and create tag
+        run: |
+          # Get latest tag or default to v0.0.0
+          latest_tag=$(git tag -l "v*" | sort -V | tail -n1)
+          if [ -z "$latest_tag" ]; then
+            latest_tag="v0.0.0"
+          fi
+          
+          # Get commits since last tag
+          if [ "$latest_tag" = "v0.0.0" ]; then
+            commits=$(git log --pretty=format:"%s" --no-merges)
+          else
+            commits=$(git log ${latest_tag}..HEAD --pretty=format:"%s" --no-merges)
+          fi
+          
+          # Determine version bump type
+          if echo "$commits" | grep -q "BREAKING CHANGE\|!:"; then
+            bump_type="major"
+          elif echo "$commits" | grep -q "^feat\|^feature"; then
+            bump_type="minor"
+          elif echo "$commits" | grep -q "^fix\|^docs\|^style\|^refactor\|^test\|^chore\|^perf"; then
+            bump_type="patch"
+          else
+            echo "No conventional commits found - skipping tag creation"
+            exit 0
+          fi
+          
+          # Parse and calculate new version
+          current_version=${latest_tag#v}
+          IFS='.' read -r major minor patch <<< "$current_version"
+          major=${major:-0}
+          minor=${minor:-0}
+          patch=${patch:-0}
+          
+          case $bump_type in
+            major) major=$((major + 1)); minor=0; patch=0 ;;
+            minor) minor=$((minor + 1)); patch=0 ;;
+            patch) patch=$((patch + 1)) ;;
+          esac
+          
+          new_version="$major.$minor.$patch"
+          new_tag="v$new_version"
+          
+          # Check if tag already exists
+          if git tag -l "$new_tag" | grep -q "$new_tag"; then
+            echo "Tag $new_tag already exists - skipping"
+            exit 0
+          fi
+          
+          echo "Bumping $bump_type version: $latest_tag → $new_tag"
+          
+          # Update pyproject.toml if it exists
+          if [ -f "pyproject.toml" ] && grep -q 'version = ' pyproject.toml; then
+            sed -i.bak "s/version = \".*\"/version = \"$new_version\"/" pyproject.toml
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add pyproject.toml
+            git commit -m "chore: bump version to $new_version [skip ci]"
+            git push origin main
+          fi
+          
+          # Create and push tag
+          git tag -a "$new_tag" -m "Release $new_tag"
+          git push origin "$new_tag"
+          echo "Created and pushed tag: $new_tag"
