@@ -112,6 +112,6 @@ jobs:
           fi
           
           # Create and push tag
-          git tag -a "$new_tag" -m "Release $new_tag"
-          git push origin --tags
+          git tag -a "$new_tag" -m "Release $new_tag" 
+          git push -f origin --tags
           echo "Created and pushed tag: $new_tag"
