@@ -17,21 +17,30 @@ jobs:
     
     steps:
       - uses: actions/create-github-app-token@v2
-        id: app-token
+        id: generate-token
         with:
           app-id: ${{ vars.BN_RELEASER_APP_ID }}
           private-key: ${{ secrets.BN_RELEASER_PRIVATE_KEY }}
+      - name: Get bot Id
+        id: get-bot-id
+        uses: octokit/request-action@dad4362715b7fb2ddedf9772c8670824af564f0d # v2.4.0
+        with:
+          route: GET /users/${{ steps.generate-token.outputs.app-slug }}[bot]
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ steps.generate-token.outputs.token }}
 
       - name: Determine version bump and create tag
         
         env:
-          app-id: ${{ vars.BN_RELEASER_APP_ID }}
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          bot-uid: ${{ secrets.BOT_UID }}
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+          GIT_AUTHOR_NAME: ${{ steps.generate-token.outputs.app-slug }}[bot]
+          GIT_AUTHOR_EMAIL: ${{ fromJson(steps.get-bot-id.outputs.data).id }}+${{ steps.generate-token.outputs.app-slug }}[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: ${{ steps.generate-token.outputs.app-slug }}[bot]
+          GIT_COMMITTER_EMAIL: ${{ fromJson(steps.get-bot-id.outputs.data).id }}+${{ steps.generate-token.outputs.app-slug }}[bot]@users.noreply.github.com
         run: |
           # Get latest tag or default to v0.0.0
           latest_tag=$(git tag -l "v*" | sort -V | tail -n1)
@@ -83,10 +92,6 @@ jobs:
 
 
           echo "Bumping $bump_type version: $latest_tag → $new_tag"
-          gh config set prompt disabled
-          gh auth setup-git
-          git config --global user.email "$bot-uid+bn-releaser[bot]@users.noreply.github.com"
-          git config --global user.name "bn-releaser[bot]"
 
           # Update pyproject.toml if it exists
           if [ -f "pyproject.toml" ] && grep -q 'version = ' pyproject.toml; then
