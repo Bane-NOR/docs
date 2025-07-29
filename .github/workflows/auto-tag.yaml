@@ -78,8 +78,6 @@ jobs:
           fi
           
           echo "Bumping $bump_type version: $latest_tag → $new_tag"
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
 
           # Update pyproject.toml if it exists
           if [ -f "pyproject.toml" ] && grep -q 'version = ' pyproject.toml; then
