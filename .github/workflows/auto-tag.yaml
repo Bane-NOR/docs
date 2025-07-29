@@ -75,18 +75,27 @@ jobs:
           
           # Update pyproject.toml if it exists
           if [ -f "pyproject.toml" ] && grep -q 'version = ' pyproject.toml; then
-            sed -i.bak "s/version = \".*\"/version = \"$new_version\"/" pyproject.toml
-            rm -f pyproject.toml.bak  # Clean up backup file
+            # Check current version in file
+            current_file_version=$(grep 'version = ' pyproject.toml | sed 's/.*version = "\([^"]*\)".*/\1/')
             
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add pyproject.toml
-            git commit -m "chore: bump version to $new_version [skip ci]"
-            git push origin main
-            echo "Updated pyproject.toml version to $new_version"
+            if [ "$current_file_version" != "$new_version" ]; then
+              sed -i.bak "s/version = \".*\"/version = \"$new_version\"/" pyproject.toml
+              rm -f pyproject.toml.bak  # Clean up backup file
+              
+              git config user.name "github-actions[bot]"
+              git config user.email "github-actions[bot]@users.noreply.github.com"
+              git add pyproject.toml
+              git commit -m "chore: bump version to $new_version [skip ci]"
+              git push origin main
+              echo "Updated pyproject.toml version: $current_file_version → $new_version"
+            else
+              echo "pyproject.toml already has version $new_version"
+            fi
           fi
           
           # Create and push tag
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git tag -a "$new_tag" -m "Release $new_tag"
-          git push origin "$new_tag"
+          git push origin --tags
           echo "Created and pushed tag: $new_tag"
