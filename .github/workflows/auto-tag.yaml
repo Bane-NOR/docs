@@ -79,7 +79,7 @@ jobs:
           
           echo "Bumping $bump_type version: $latest_tag → $new_tag"
           gh config set prompt disabled
-          echo $GH_TOKEN | gh auth login --with-token 
+          gh auth login --with-token $GH_TOKEN
           gh auth setup-git
 
           # Update pyproject.toml if it exists
