@@ -31,6 +31,7 @@ jobs:
         env:
           app-id: ${{ vars.BN_RELEASER_APP_ID }}
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          bot-uid: ${{ secrets.BOT_UID }}
         run: |
           # Get latest tag or default to v0.0.0
           latest_tag=$(git tag -l "v*" | sort -V | tail -n1)
@@ -84,8 +85,8 @@ jobs:
           echo "Bumping $bump_type version: $latest_tag → $new_tag"
           gh config set prompt disabled
           gh auth setup-git
-          git config --global user.email "${{ vars.BN_RELEASER_APP_ID }}+bn-releaser@users.noreply.github.com"
-          git config --global user.name "bn-releaser"
+          git config --global user.email "$bot-uid+bn-releaser[bot]@users.noreply.github.com"
+          git config --global user.name "bn-releaser[bot]"
 
           # Update pyproject.toml if it exists
           if [ -f "pyproject.toml" ] && grep -q 'version = ' pyproject.toml; then
