@@ -11,15 +11,15 @@
   },
   "servers": [
     {
-      "url": "https://event-issuer-api-v1.apps-int.banenor.no",
+      "url": "https://api.banenor.no/event-issuer/v1",
       "description": "Production instance for Bane NOR, this will have the alpha, beta and the latest released version available."
     },
     {
-      "url": "https://event-issuer-api-v1.review.apps-int.banenor.no",
+      "url": "https://dev.api.apps.banenor.no/event-issuer/v1",
       "description": "Internal development instance"
     },
     {
-      "url": "https://event-issuer-api-v1.staging.apps-int.banenor.no",
+      "url": "https://test.api.apps.banenor.no/event-issuer/v1",
       "description": "Internal test instance"
     }
   ],
@@ -143,6 +143,46 @@
         }
       }
     },
+    "/{tenantId}/subscriptions/status/{status}": {
+      "delete": {
+        "summary": "Delete subscriptions by status",
+        "operationId": "deleteSubscriptionsByStatus",
+        "tags": [
+          "Subscriptions"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/tenantId"
+          },
+          {
+            "$ref": "#/components/parameters/status"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Ok"
+          },
+          "400": {
+            "$ref": "#/components/responses/400-bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/401-unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/403-forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/404-not-found"
+          },
+          "422": {
+            "$ref": "#/components/responses/422-unprocessable-content"
+          },
+          "500": {
+            "$ref": "#/components/responses/500-internal-server-error"
+          }
+        }
+      }
+    },
     "/{tenantId}/subscriptions/{subscriptionId}": {
       "get": {
         "summary": "Get information on specific subscription with more details",
@@ -158,6 +198,59 @@
             "$ref": "#/components/parameters/subscriptionId"
           }
         ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Subscription"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400-bad-request"
+          },
+          "401": {
+            "$ref": "#/components/responses/401-unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/403-forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/404-not-found"
+          },
+          "500": {
+            "$ref": "#/components/responses/500-internal-server-error"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update a specific subscription with new information",
+        "operationId": "updateSpecificSubscription",
+        "tags": [
+          "Subscriptions"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/tenantId"
+          },
+          {
+            "$ref": "#/components/parameters/subscriptionId"
+          }
+        ],
+        "requestBody": {
+          "description": "A Json Object containing subscription information.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSubscription"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Ok",
@@ -618,6 +711,15 @@
           ]
         }
       },
+      "status": {
+        "name": "status",
+        "in": "path",
+        "required": true,
+        "description": "Value of SubscriptionWorkerStatus for a subscription\n",
+        "schema": {
+          "type": "string"
+        }
+      },
       "subscriptionId": {
         "name": "subscriptionId",
         "in": "path",
@@ -710,6 +812,65 @@
       }
     },
     "schemas": {
+      "BasicAuthResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of authentication used.",
+            "example": "Basic",
+            "enum": [
+              "Basic",
+              "EntraId",
+              "Maskinporten"
+            ]
+          }
+        }
+      },
+      "EntraIdResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of authentication used.",
+            "example": "EntraId",
+            "enum": [
+              "Basic",
+              "EntraId",
+              "Maskinporten"
+            ]
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Any scopes that need to be retrieved with the JWT Bearer token to be sent to the webhook endpoint"
+          }
+        }
+      },
+      "MaskinportenResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of authentication used.",
+            "example": "maskinporten",
+            "enum": [
+              "Basic",
+              "EntraId",
+              "Maskinporten"
+            ]
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Any scopes that need to be retrieved with the JWT Bearer token to be sent to the webhook endpoint"
+          }
+        }
+      },
       "Subscription": {
         "type": "object",
         "properties": {
@@ -756,14 +917,17 @@
                 "type": "null"
               },
               {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "description": "What authentication type has been used for subscription",
-                    "example": "Maskinporten"
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/BasicAuthResponse"
+                  },
+                  {
+                    "$ref": "#/components/schemas/EntraIdResponse"
+                  },
+                  {
+                    "$ref": "#/components/schemas/MaskinportenResponse"
                   }
-                }
+                ]
               }
             ]
           },
@@ -857,7 +1021,7 @@
           "type": {
             "type": "string",
             "description": "The type of authentication used.",
-            "example": "basic",
+            "example": "Basic",
             "enum": [
               "Basic",
               "EntraId",
@@ -931,7 +1095,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Any scopes that need to be retrived with the JWT Bearer token to be sendt to the webhook endpoint"
+            "description": "Any scopes that need to be retrieved with the JWT Bearer token to be sent to the webhook endpoint"
           }
         }
       },
@@ -974,6 +1138,18 @@
                 "$ref": "#/components/schemas/Maskinporten"
               }
             ]
+          }
+        }
+      },
+      "UpdateSubscription": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "pattern": "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()!@:%_\\+.~#?&\\/\\/=]*)",
+            "minimum": 1,
+            "description": "The URL of the subscription.",
+            "example": "http://example.com"
           }
         }
       },
