@@ -2,4 +2,5 @@ nav:
   - index.md
   - Creating-subscriptions.md
   - Filtering-your-subscriptions.md
+  - Set-subscription-consumer-configuration.md
   - debugging.md
