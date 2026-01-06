@@ -3,9 +3,6 @@
 We have opened up for the possitibility to customize Consumer Configurations for your subscriptions. Per now you can only set this when creating a new subscription, it is not possible to update the consumerConfig for an existing subscription. 
 This is an optional field, and will default to default config if it is not set.
 
-!!! info
-    This is a new feature and is only available in the test and staging environment
-
 ## Allowed Consumer Configuration Settings
 
 The following settings can be customized by end-users:
