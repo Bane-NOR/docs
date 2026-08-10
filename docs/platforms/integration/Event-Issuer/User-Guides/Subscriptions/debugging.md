@@ -2,7 +2,12 @@
 
 To make the event issuer more self-service, the integration team has set up multiple solutions to allow for as much debugging as possible on the client side before a member of the integration team has to get involved. The main methods recommended for debugging by the integration team are:
 
-- Checking subscription status
+- Verifying your permissions via `/userinfo`
+- Checking Subscription Status and error reports
+
+### Verifying permissions with /userinfo
+
+If you are experiencing unexpected access errors, the first thing to check is whether your user has been granted the correct policies. Call the `/userinfo` endpoint (https://test.api.apps.banenor.no/event-issuer/v1/userinfo) with your APIM subscription key — it returns your tenant, display name, and the complete list of topics you are permitted to produce to and subscribe to. If the topic in question is missing from the response, contact the integration team to have the policy added.
 
 ## Debugging by checking subscription status
 

@@ -4,6 +4,10 @@
 
 Subscriptions are the main mechanism for getting real-time events from the Bane NOR event backbone. The subscription is a reference to an application that wants events to be sent to a webhook endpoint. The subscriber can configure the authentication towards the endpoint in addition to an API key if that is needed.
 
+!!! note
+    You can use the `https://test.api.apps.banenor.no/event-issuer/v1/userinfo` endpoint to look up your own user details at any time. This endpoint returns your tenant, your display name, and a full list of your current permissions, including which topics you are allowed to produce to (write) and which topics you are allowed to subscribe to (read). This is useful for verifying that you have been granted the correct access before you start producing or consuming.
+
+
 ## Webhook endpoint
 
 The endpoint can receive the event payload with additional metadata by using the [CloudEvents](../Getting-Started/cloudevents.md) HTTP binding.
