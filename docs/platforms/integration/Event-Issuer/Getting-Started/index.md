@@ -32,6 +32,10 @@ This means that if you prefer, you can simply test sending API requests using fo
 
 ### Starting your first subscription
 
+!!! note
+    You can use the `https://test.api.apps.banenor.no/event-issuer/v1/userinfo` endpoint to look up your own user details at any time. This endpoint returns your tenant, your display name, and a full list of your current permissions, including which topics you are allowed to produce to (write) and which topics you are allowed to subscribe to (read). This is useful for verifying that you have been granted the correct access before you start producing or consuming.
+
+
 Once your user has gotten access to the event-issuer API, and a tenant for your organization has been created with the correct access policies, you can create your first subscription. To create a subscription, you must use the **Create Subscription** method towards the event-issuers subscription Endpoint. The API definition for this can be seen on the available API found in our GitHub documentation here: [Create Subscription Method](https://bane-nor.github.io/platform-docs/integration/Event-Issuer/apis/v1/redoc-fcdec0ce.html#tag/Subscriptions/operation/createSubscription)
 
 #### Example Bruno Request
